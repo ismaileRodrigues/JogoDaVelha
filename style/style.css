@@ -27,6 +27,7 @@ button {
     background: #000;
    color:white ;
    padding: 10px;
+   cursor: pointer;
 }
 .cell {
     width: 100px;
@@ -34,7 +35,13 @@ button {
     display: flex;
     align-items: center;
     justify-content: center;
+    
     font-size: 24px;
     border: 1px solid #000;
     cursor: pointer;
+}
+
+img{
+    width: 100px;
+    height: 100px;
 }

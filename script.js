@@ -20,11 +20,13 @@ function creatBoard() {
         cell.addEventListener('click', () => makeMove(index));
         board.appendChild(cell);
         
-        
+      if (cells.index==='X') {
+          cell.style.backgroundColor = 'red'
+      }
+
     })
     
-    
-    
+
 }
 
 
@@ -35,21 +37,33 @@ function makeMove(index) {
         render();
 
         if (checkWinner()) {
+
              if( cells[index] = currentPlayer=== 'X'){
                contadorX++
              pontuacaoX.innerHTML =` X = ${contadorX}`;
              }else if(cells[index] = currentPlayer=== 'O') {
                 contadorO++
                 pontuacaoO.innerHTML =` O = ${contadorO}`;
-             }
+               
+             } 
 
         } else {
             currentPlayer = currentPlayer === "X" ? "O" : "X";
 
         }
-
-
+                
+     
     }
+
+    if(contadorX>5){
+        pontuacaoX.innerHTML =` X = Se é o bichao memo`;
+      
+        
+     }else if(contadorO>5) {
+        pontuacaoO.innerHTML =` O = Se é o bichao memo`;
+     }
+
+
 }
 
 
@@ -57,6 +71,15 @@ function render() {
     const cellElements = document.querySelectorAll('.cell');
     cells.forEach((cell, index) => {
         cellElements[index].textContent = cell;
+        if (cell === 'X') { 
+            
+        cellElements[index].style.backgroundColor = 'green'; 
+    
+    } else if(cell === 'O') {
+         cellElements[index].style.backgroundColor = 'blue'; 
+            } else{
+                cellElements[index].style.backgroundColor = ''; 
+            }
 
     })
 
@@ -75,16 +98,20 @@ function checkWinner() {
     return winningCombinations.some(combination => {
         const [a, b, c] = combination;
         return cells[a] && cells[a] === cells[b] && cells[a] === cells[c]
+
     });
+    
 
 }
 
 function resetGame() {
     cells.fill(null);
-
+    
     currentPlayer = "X";
-
+    
+    
     render()
+
 }
 
 
