@@ -116,3 +116,4 @@ function resetGame() {
 
 
 creatBoard()
+

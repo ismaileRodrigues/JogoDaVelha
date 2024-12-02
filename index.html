@@ -10,11 +10,21 @@
 
 <body>
     
+    <h1>Jogo Da Velha</h1>
     <div class="center">
-        <h1>Jogo Da Velha</h1>
-        <img src="./img/velhinha.png" alt="" srcset="">
-        <p id='X'>X</p>
-        <p id='O'>O</p>
+        <div class="nivelButton">
+            <a href="indexNovaFaze.html">Nivel 2</a>
+    
+    
+         </div>
+
+        <img src="./img/velhinha.png" alt="" >
+
+        <div class="pontos">
+            <p id='X'>X = 0</p>
+        <p id='O'>O = 0</p>
+        </div>
+        
         
 
         <div class="board" id="board"></div>
@@ -23,10 +33,11 @@
 
         <button onclick="resetGame()">Nova Partida</button>
     </div>
-
+  
 
 
     <script src="script.js"></script>
+  
 </body>
 
 </html>
