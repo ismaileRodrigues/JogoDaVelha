@@ -56,14 +56,32 @@ function makeMove(index) {
     }
 
     if(contadorX>5){
-        pontuacaoX.innerHTML =` X = Se é o bichao memo`;
-      
         
-     }else if(contadorO>5) {
-        pontuacaoO.innerHTML =` O = Se é o bichao memo`;
+        let desejaIrParaProximoNivel = confirm(`${currentPlayer} Venceu de ${contadorX} a  ${contadorO} , Você deseja ir para o próximo nível?` )
+  
+        if(desejaIrParaProximoNivel) {
+
+           window.location.href = 'indexNovaFaze.html';
+        }else{
+            contadorX = 0
+            contadorO = 0
+            pontuacaoX.innerHTML = contadorX;
+            pontuacaoO.innerHTML = contadorO
+
+        }
+        
+        
+    }else if(contadorO>5) {
+        let desejaIrParaProximoNivel = confirm(`${currentPlayer} Venceu, Você deseja ir para o próximo nível?` )
+
+        if(desejaIrParaProximoNivel) {
+
+            window.location.href = 'indexNovaFaze.html';
+        }
+   
      }
 
-
+    
 }
 
 
@@ -81,6 +99,7 @@ function render() {
                 cellElements[index].style.backgroundColor = ''; 
             }
 
+        
     })
 
 }
@@ -95,12 +114,15 @@ function checkWinner() {
         [0, 4, 8], [2, 4, 6] // diagonais
     ];
 
+  
     return winningCombinations.some(combination => {
         const [a, b, c] = combination;
         return cells[a] && cells[a] === cells[b] && cells[a] === cells[c]
 
-    });
     
+    });
+
+  
 
 }
 
